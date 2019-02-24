@@ -5,7 +5,7 @@
 
     Pantalla de edicion del catalogo 
     <?php
-    echo $id;
+    echo $cliente->id;
 ?>
 
 <div class="row" style="margin-top:40px">
@@ -25,7 +25,7 @@
 
             <div class="form-group">
                <label for="title">Nombre</label>
-               <input type="text" name="title" id="title" class="form-control">
+               <input type="text" name="title" id="title" class="form-control" value="{{$cliente->nombre}}">
             </div>
 
             <div class="form-group">

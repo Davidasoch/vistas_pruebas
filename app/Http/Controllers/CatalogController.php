@@ -9,6 +9,10 @@ use App\Cliente;
 class CatalogController extends Controller
 {
 
+    public function __construct(){
+        $this->middleware('auth');
+    }
+
 
     function getIndex(){
 
@@ -27,13 +31,21 @@ class CatalogController extends Controller
     function getEdit($id){
         $users = DB::table('clientes')->get();
         $targetuser = Cliente::findOrFail($id);
-        return view('catalog/edit', array('id'=>$targetuser->id));
+        return view('catalog/edit', array('cliente'=>$targetuser));
     }
 
     function getShow($id){
         $users = DB::table('clientes')->get();
         $targetuser = Cliente::findOrFail($id);
         return view('catalog/show', array('cliente'=>$targetuser));
+    }
+
+    function postCreate(){
+
+    }
+
+    function putEdit(){
+
     }
 
 }
